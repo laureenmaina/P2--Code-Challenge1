@@ -1,46 +1,15 @@
 import React from "react";
 
-function Table() {
-  const details = [
-    {
-      date: "2019-12-01",
-      description: "Paycheck from Bob's Burgers",
-      category: "Income",
-      amount: "1000"
-    },
-    {
-      date: "2019-12-01",
-      description: "South by Southwest Quinoa Bowl at Fresh & Co",
-      category: "Food",
-      amount: "-10.55"
-    },
-    {
-      date: "2019-12-02",
-      description: "South by Southwest Quinoa Bowl at Fresh & Co",
-      category: "Food",
-      amount: "-10.55"
-    },
-    {
-      date: "2019-12-04",
-      description: "Sunglasses, Urban Outfitters",
-      category: "Fashion",
-      amount: "-24.99"
-    },
-    {
-      date: "2019-12-06",
-      description: "Venmo Alicn Pays you for Burrito",
-      category: "Food",
-      amount: "8.75"
-    },
-    {
-      date: "2019-12-06",
-      description: "Chipotle",
-      category: "Food",
-      amount: "-17.59"
-    }
-  ];
+function Table({details,searchList}) {
+  if (!details) {
+    return null; // Or display a loading indicator, error message, etc.
+  }
+  const filteredData = details.filter(detail =>
+    detail.date.toLowerCase().includes(searchList.toLowerCase()) ||  detail.description.toLowerCase().includes(searchList.toLowerCase()) ||
+    detail.category.toLowerCase().includes(searchList.toLowerCase()) ||  detail.amount.toLowerCase().includes(searchList.toLowerCase())
+  );
 
-  return (
+ return (
     <div>
       <table className="table table-bordered 3px solid text-center">
         <thead>
@@ -52,7 +21,7 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          {details.map((detail, index) => (
+          {filteredData.map((detail, index) => (
             <tr key={index}>
               <td>{detail.date}</td>
               <td>{detail.description}</td>
