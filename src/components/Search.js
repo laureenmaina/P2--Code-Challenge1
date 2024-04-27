@@ -1,9 +1,18 @@
 import React, {useState} from "react";
 import Table from "./Table";
-import ButtonClick from "./Button";
+import ButtonClick from "./AddButton";
 
 
-function Filter(){
+function Search(){
+  const [transactions, setTransactions] = useState([]);
+
+  const handleNewData = (newTransaction) => {
+    setTransactions([...transactions, newTransaction]);
+  };
+
+  const onAddTransaction = (newTransaction) => {
+    setTransactions([...transactions, newTransaction]);
+  };
   const [details] = useState ([
     {
       date: "2019-12-01",
@@ -43,7 +52,8 @@ function Filter(){
     }
   ]);
 
-  const [searchList, setSearchList, addTransaction]= useState("")
+
+  const [searchList, setSearchList]= useState("")
 
   function HandleSearchChange(event){
     setSearchList(event.target.value)
@@ -58,12 +68,14 @@ function Filter(){
           placeholder="Search" 
           aria-label="Search"
           value={searchList}
-          onChange={HandleSearchChange}></input>         
+          onChange={HandleSearchChange}></input>   
+           
       </form>
-     <ButtonClick onAddTransaction={addTransaction}/>
+      <ButtonClick handleNewData={handleNewData} onAddTransaction={onAddTransaction} />
+
       <Table details={details} searchList={searchList}/>
 
         </div>
     )
 }
-export default Filter
+export default Search

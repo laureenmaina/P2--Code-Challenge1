@@ -1,7 +1,8 @@
 import React from "react";
 
 
-function Table({details,searchList, transactions}) {
+
+function Table({details,searchList}) {
   if (!details) {
     return null; 
   }
@@ -23,14 +24,14 @@ function Table({details,searchList, transactions}) {
         </thead>
         <tbody>
           {filteredData.map((detail, index) => (
-            <tr key={index}>
+            <tr key={index+1}>
               <td>{detail.date}</td>
               <td>{detail.description}</td>
               <td>{detail.category}</td>
               <td>{detail.amount}</td>
             </tr>
           ))}
-            
+                      
         </tbody>
       </table>
     </div>
