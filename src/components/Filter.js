@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import Table from "./Table";
+import ButtonClick from "./Button";
+
 
 function Filter(){
   const [details] = useState ([
@@ -41,7 +43,7 @@ function Filter(){
     }
   ]);
 
-  const [searchList, setSearchList]= useState("")
+  const [searchList, setSearchList, addTransaction]= useState("")
 
   function HandleSearchChange(event){
     setSearchList(event.target.value)
@@ -58,6 +60,7 @@ function Filter(){
           value={searchList}
           onChange={HandleSearchChange}></input>         
       </form>
+     <ButtonClick onAddTransaction={addTransaction}/>
       <Table details={details} searchList={searchList}/>
 
         </div>

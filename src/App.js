@@ -1,24 +1,30 @@
-import React from "react";
+import React, {useState} from "react";
 import './App.css';
 import Table from "./components/Table"
 import Header from "./components/Header";
 import Filter from "./components/Filter";
-import Inputs from "./components/Inputs";
 import ButtonClick from "./components/Button";
 
 
-function App() {
+
+function App({details, searchList}){
+  const [transactions, setTransactions] = useState([]);
+
+  const addTransaction = (newTransaction,transactions) => {
+    setTransactions([...transactions, newTransaction]);
+  };
+  
+
   return (
     <>   
    
     <Header/>
-     <Inputs />
-    <ButtonClick />
     <Filter/>
-    <Table />
+    <Table details={details} searchList={searchList}/>
+   
    
     
-   
+  
       
     </>
   

@@ -1,8 +1,9 @@
 import React from "react";
 
-function Table({details,searchList}) {
+
+function Table({details,searchList, transactions}) {
   if (!details) {
-    return null; // Or display a loading indicator, error message, etc.
+    return null; 
   }
   const filteredData = details.filter(detail =>
     detail.date.toLowerCase().includes(searchList.toLowerCase()) ||  detail.description.toLowerCase().includes(searchList.toLowerCase()) ||
@@ -29,6 +30,7 @@ function Table({details,searchList}) {
               <td>{detail.amount}</td>
             </tr>
           ))}
+            
         </tbody>
       </table>
     </div>
