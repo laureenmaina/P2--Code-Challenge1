@@ -4,6 +4,7 @@ import Table from "./components/Table"
 import Header from "./components/Header";
 import Filter from "./components/Filter";
 import Inputs from "./components/Inputs";
+import ButtonClick from "./components/Button";
 
 
 function App() {
@@ -11,8 +12,9 @@ function App() {
     <>   
    
     <Header/>
+     <Inputs />
+    <ButtonClick />
     <Filter/>
-    <Inputs />
     <Table />
    
     

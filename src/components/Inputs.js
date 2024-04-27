@@ -1,14 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 
 
 function Inputs() {
 
-
-    function ButtonClick(event){
-        const btn = event.target.value
-       
-
-    }
 
     return (
         <>
@@ -18,9 +12,7 @@ function Inputs() {
             <input type="text" className="form-control" placeholder="Category"/>
             <input type="text" className="form-control" placeholder="Amount"/>
           </div>
-          <div className="d-grid gap-2 col-2 mx-auto">
-          <button type="button" className="btn btn-secondary" onClick={ButtonClick}>Add Transaction</button>
-          </div>
+        
       </>
     );
 }
