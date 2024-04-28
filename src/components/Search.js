@@ -47,7 +47,7 @@ function Search(){
   const onAddTransaction = (newTransaction) => {
     setTransactions([...transactions, newTransaction]);
   };
-
+// Search 
   const [searchList, setSearchList]= useState("")
 
   function HandleSearchChange(event){
