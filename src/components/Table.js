@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 function Table({details,searchList}) {
   if (!details) {
     return null; 

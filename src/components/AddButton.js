@@ -1,30 +1,30 @@
 import React, { useState } from "react";
 
-
-
 function ButtonClick({ onAddTransaction }) {
   const [newTransaction, setNewTransaction] = useState({
     date: "",
     description: "",
     category: "",
-    amount: ""
+    amount: "",
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setNewTransaction({ ...newTransaction, [name]: value });
+    setNewTransaction((prevTransaction) => ({
+      ...prevTransaction,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     onAddTransaction(newTransaction);
     setNewTransaction({
       date: "",
       description: "",
-      category:"",
-      amount: ""
+      category: "",
+      amount: "",
     });
-  console.log(newTransaction);
   };
 
   return (
@@ -35,42 +35,42 @@ function ButtonClick({ onAddTransaction }) {
           className="form-control"
           name="date"
           value={newTransaction.date}
-          placeholder="Date"
           onChange={handleChange}
+          required
         />
         <input
           type="text"
           className="form-control"
           name="description"
-          value={newTransaction.description}
           placeholder="Description"
+          value={newTransaction.description}
           onChange={handleChange}
+          required
         />
         <input
           type="text"
           className="form-control"
           name="category"
-          value={newTransaction.category}
           placeholder="Category"
+          value={newTransaction.category}
           onChange={handleChange}
+          required
         />
         <input
-          type="text"
+          type="number"
           className="form-control"
           name="amount"
-          value={newTransaction.amount}
           placeholder="Amount"
+          value={newTransaction.amount}
           onChange={handleChange}
+          required
         />
-      </div>
-      <div className="d-grid gap-2 col-3 mx-auto">
-        <button type="submit" className="btn btn-secondary">
+        <button type="submit" className="btn btn-primary">
           Add Transaction
         </button>
       </div>
-      
     </form>
   );
 }
 
-export default ButtonClick
+export default ButtonClick;
