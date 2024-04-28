@@ -3,17 +3,19 @@ import './App.css';
 import Table from "./components/Table"
 import Header from "./components/Header";
 import Search from "./components/Search";
+import ButtonClick from "./components/AddButton";
 
 
 
-function App({ details, searchList, newTransaction }) {
+function App({ transactions, searchList, onAddTransaction}) {
 
 
   return (
     <>   
       <Header/>
       <Search/>
-       <Table details={details} searchList={searchList} newTransaction={newTransaction}/>
+   
+
     </>
   );
 }

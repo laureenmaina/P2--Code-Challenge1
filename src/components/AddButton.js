@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 function ButtonClick({ onAddTransaction }) {
   const [newTransaction, setNewTransaction] = useState({
     date: "",
@@ -10,23 +11,22 @@ function ButtonClick({ onAddTransaction }) {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setNewTransaction((prevTransaction) => ({
-      ...prevTransaction,
+    setNewTransaction({
+      ...newTransaction,
       [name]: value,
-    }));
-  };
-
+    } 
+  )};
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("Submitting transaction:", newTransaction);
     onAddTransaction(newTransaction);
     setNewTransaction({
       date: "",
       description: "",
       category: "",
       amount: "",
-    });
+    }); 
   };
-
   return (
     <form className="form" onSubmit={handleSubmit}>
       <div className="input-group mb-3">
@@ -65,11 +65,14 @@ function ButtonClick({ onAddTransaction }) {
           onChange={handleChange}
           required
         />
-        <button type="submit" className="btn btn-primary">
+        <button
+         type="submit" 
+         className="btn btn-secondary">
           Add Transaction
-        </button>
+        </button> 
       </div>
     </form>
+
   );
 }
 

@@ -9,8 +9,8 @@ function Table({details,searchList}) {
     detail.category.toLowerCase().includes(searchList.toLowerCase()) ||  detail.amount.toLowerCase().includes(searchList.toLowerCase())
   );
 
- return (
-    <div>
+ return ( 
+   <div className="input-group mb-3">
       <table className="table table-bordered 3px solid text-center">
         <thead>
           <tr>
@@ -28,11 +28,11 @@ function Table({details,searchList}) {
               <td>{detail.category}</td>
               <td>{detail.amount}</td>
             </tr>
-          ))}
-                      
+          ))}              
         </tbody>
       </table>
-    </div>
+     </div>
+    
   );
 }
 
